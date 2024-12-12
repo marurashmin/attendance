@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 12, 2024 at 11:24 AM
--- Server version: 11.3.2-MariaDB
--- PHP Version: 8.1.28
+-- Generation Time: Dec 12, 2024 at 05:58 PM
+-- Server version: 8.3.0
+-- PHP Version: 8.2.18
 
 SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -96,19 +96,19 @@ DELIMITER ;
 
 DROP TABLE IF EXISTS `attendance`;
 CREATE TABLE IF NOT EXISTS `attendance` (
-  `AttendanceID` int(11) NOT NULL,
-  `EmployeeID` int(11) DEFAULT NULL,
+  `AttendanceID` int NOT NULL AUTO_INCREMENT,
+  `EmployeeID` int DEFAULT NULL,
   `Date` date DEFAULT NULL,
-  `Status` varchar(20) DEFAULT NULL,
+  `Status` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`AttendanceID`),
   KEY `EmployeeID` (`EmployeeID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `attendance`
 --
 
-INSERT INTO `attendance` (`AttendanceID`,`EmployeeID`, `Date`, `Status`) VALUES
+INSERT INTO `attendance` (`AttendanceID`, `EmployeeID`, `Date`, `Status`) VALUES
 (1, 1, '2024-12-01', 'Present'),
 (2, 2, '2024-12-01', 'Absent'),
 (3, 3, '2024-12-01', 'Present'),
@@ -119,22 +119,46 @@ INSERT INTO `attendance` (`AttendanceID`,`EmployeeID`, `Date`, `Status`) VALUES
 (8, 8, '2024-12-01', 'Leave'),
 (9, 9, '2024-12-01', 'Present'),
 (10, 10, '2024-12-01', 'Absent'),
-(11, 1, '2024-12-02', 'Absent'),
-(12, 2, '2024-12-02', 'Present'),
-(13, 3, '2024-12-02', 'Leave'),
-(14, 4, '2024-12-02', 'Present'),
-(15, 5, '2024-12-02', 'Absent'),
+(11, 1, '2024-12-02', 'Present'),
+(12, 2, '2024-12-02', 'Absent'),
+(13, 3, '2024-12-02', 'Present'),
+(14, 4, '2024-12-02', 'Leave'),
+(15, 5, '2024-12-02', 'Present'),
 (16, 6, '2024-12-02', 'Present'),
-(17, 7, '2024-12-02', 'Present'),
-(18, 8, '2024-12-02', 'Absent'),
-(19, 9, '2024-12-02', 'Leave'),
-(20, 10, '2024-12-02', 'Present'),
-
-
-
-
-(50, 10, '2024-12-10', 'Leave');
-
+(17, 7, '2024-12-02', 'Absent'),
+(18, 8, '2024-12-02', 'Leave'),
+(19, 9, '2024-12-02', 'Present'),
+(20, 10, '2024-12-02', 'Absent'),
+(21, 1, '2024-12-05', 'Present'),
+(22, 2, '2024-12-05', 'Absent'),
+(23, 3, '2024-12-05', 'Present'),
+(24, 4, '2024-12-05', 'Leave'),
+(25, 5, '2024-12-05', 'Present'),
+(26, 6, '2024-12-05', 'Present'),
+(27, 7, '2024-12-05', 'Absent'),
+(28, 8, '2024-12-05', 'Leave'),
+(29, 9, '2024-12-05', 'Present'),
+(30, 10, '2024-12-05', 'Absent'),
+(31, 1, '2024-12-15', 'Present'),
+(32, 2, '2024-12-15', 'Absent'),
+(33, 3, '2024-12-15', 'Present'),
+(34, 4, '2024-12-15', 'Leave'),
+(35, 5, '2024-12-15', 'Present'),
+(36, 6, '2024-12-15', 'Present'),
+(37, 7, '2024-12-15', 'Absent'),
+(38, 8, '2024-12-15', 'Leave'),
+(39, 9, '2024-12-15', 'Present'),
+(40, 10, '2024-12-15', 'Absent'),
+(41, 1, '2024-12-20', 'Present'),
+(42, 2, '2024-12-20', 'Absent'),
+(43, 3, '2024-12-20', 'Present'),
+(44, 4, '2024-12-20', 'Leave'),
+(45, 5, '2024-12-20', 'Present'),
+(46, 6, '2024-12-20', 'Present'),
+(47, 7, '2024-12-20', 'Absent'),
+(48, 8, '2024-12-20', 'Leave'),
+(49, 9, '2024-12-20', 'Present'),
+(50, 10, '2024-12-20', 'Absent');
 
 -- --------------------------------------------------------
 
@@ -144,10 +168,10 @@ INSERT INTO `attendance` (`AttendanceID`,`EmployeeID`, `Date`, `Status`) VALUES
 
 DROP TABLE IF EXISTS `employee`;
 CREATE TABLE IF NOT EXISTS `employee` (
-  `EmployeeID` int(11) NOT NULL,
-  `FirstName` varchar(50) DEFAULT NULL,
-  `LastName` varchar(50) DEFAULT NULL,
-  `Department` varchar(50) DEFAULT NULL,
+  `EmployeeID` int NOT NULL,
+  `FirstName` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `LastName` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Department` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `HireDate` date DEFAULT NULL,
   PRIMARY KEY (`EmployeeID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
